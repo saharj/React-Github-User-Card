@@ -1,8 +1,18 @@
 import React from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button,
+  Col,
+} from "reactstrap";
 
 const UserCard = (props) => {
-  console.log(props);
+  const onBtnClick = () => {
+    props.onShowFollowers(true);
+  };
   return (
     <div>
       <Col>
@@ -19,6 +29,9 @@ const UserCard = (props) => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </CardText>
+            {props.onShowFollowers && (
+              <Button onClick={onBtnClick}>Show followers</Button>
+            )}
           </CardBody>
         </Card>
       </Col>
